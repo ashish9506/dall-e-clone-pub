@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from "openai";
 import _ from "lodash";
 
 const configuration = new Configuration({
-  apiKey: config.get("openaiKey"),
+  apiKey: process.env.OPEN_AI_KEY,
 });
 
 const openai = new OpenAIApi(configuration);

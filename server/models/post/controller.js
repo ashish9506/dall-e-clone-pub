@@ -2,11 +2,10 @@ import { v2 as cloudinary } from "cloudinary";
 import PostModel from "./schema.js";
 import config from "config";
 
-const cloudinaryConfig = config.get("cloudinary");
 cloudinary.config({
-  cloud_name: cloudinaryConfig.name,
-  api_key: cloudinaryConfig.apikey,
-  api_secret: cloudinaryConfig.apisecret,
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_APISECRET,
 });
 
 export default {

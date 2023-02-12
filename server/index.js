@@ -1,12 +1,12 @@
 import express from "express";
 import cors from "cors";
-import config from "config";
 import connectDB from "./mongodb/connect.js";
 import postRoutes from "./models/post/routes.js";
 import dalleRoutes from "./models/dalle/routes.js";
+import * as dotenv from "dotenv";
 
 const baseUrl = "/api/v1";
-
+dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
@@ -22,7 +22,7 @@ app.get("/", async (req, res) => {
 });
 const startServer = async () => {
   try {
-    connectDB(config.get("connection_uri"));
+    connectDB(process.env.MONGO_URL);
     app.listen(8080, () =>
       console.log("Server listening on PORT http://localhost:8080")
     );
