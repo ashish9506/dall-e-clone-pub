@@ -10,7 +10,6 @@ const App = () => {
         <Link to="/">
           <img src={logo} alt="logo" className="w-28 object-contain" />
         </Link>
-
         <Link
           to="/create-post"
           className="font-inter font-medium bg-[#6469ff] text-white px-4 py-2 rounded-md"
@@ -24,6 +23,14 @@ const App = () => {
           <Route path="/create-post" element={<CreatePost />} />
         </Routes>
       </main>
+
+      <footer>
+        <div className="border-y-2 py-5">
+          <div className="max-w-7xl mx-auto text-right">
+           ~ Developed with care by Ashish Chaurasiya
+          </div>
+        </div>
+      </footer>
     </BrowserRouter>
   );
 };
